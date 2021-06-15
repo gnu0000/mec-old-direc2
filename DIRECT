@@ -1,0 +1,10 @@
+direct.exe : direct.obj stackq.obj direct
+     link /ST:32767 /NOD direct stackq,direct.exe,,slibcep os2,;
+     bind direct.exe
+     markexe lfns direct.exe
+
+direct.obj : direct.c stackq.h direct
+     cl -AS -c -W3 direct.c
+
+stackq.obj : stackq.c stackq.h
+     cl -AS -c -W3 stackq.c
